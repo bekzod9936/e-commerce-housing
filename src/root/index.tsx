@@ -1,25 +1,33 @@
 import React from 'react';
 import { Container } from './style';
 import { data } from '../utils/sidebar';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 const Root = () => {
   return (
-    <Router>
-      <Container>
-        {data.map((v) => (
-          <Link key={v.id} to={v.path}>
-            {v.title}
-          </Link>
-        ))}
+    <Container>
+      <Router>
+        <Switch>
+          <Route>
+            <NavBar />
+          </Route>
+        </Switch>
         <Switch>
           {data.map((v) => (
-            <Route key={v.id} path={v.path} component={v.component} />
+            <Route exact key={v.id} path={v.path} component={v.component} />
           ))}
-          <Route></Route>
+          <Route exact path='/'>
+            <Redirect to='/home' />
+          </Route>
         </Switch>
-      </Container>
-    </Router>
+      </Router>
+    </Container>
   );
 };
 

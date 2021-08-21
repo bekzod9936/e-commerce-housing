@@ -6,4 +6,13 @@
 
 :root {
   --fontFamily: 'sans-serif';
+  --blue: #0061df;
+  --darkblue: #0d263b;
+  --white: #ffffff;
+  --lightgray: #bdd0dd;
+  --iconcolor: #696969;
+  --bgcolor1: #f6f8f9;
+  --bgcolor2: #f5f7fc;
+  --textcolor: #696969;
+  --bordercolor: #e6e9ec;
 }
